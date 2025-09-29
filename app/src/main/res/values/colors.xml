@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Palette Vert Pastel -->
+    <color name="vert_pastel_principal">#A8E6CF</color>
+    <color name="vert_pastel_fonce">#88D8A3</color>
+    <color name="blanc_creme">#FFF8E7</color>
+    <color name="gris_doux">#F5F5F5</color>
+
+    <!-- Couleur pour les étoiles -->
+    <color name="jaune_etoile">#FFD700</color>
+    <color name="gris_etoile">#E0E0E0</color>
+
 </resources>
