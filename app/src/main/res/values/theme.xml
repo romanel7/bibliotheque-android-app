@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============= THÈME CLAIR (Défaut) ============= -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/clair_primary</item>
+        <item name="colorPrimaryDark">@color/clair_primary_dark</item>
+        <item name="colorAccent">@color/clair_accent</item>
+        <item name="android:windowBackground">@color/clair_background</item>
+        <item name="backgroundColor">@color/clair_background</item>
+        <item name="surfaceColor">@color/clair_surface</item>
+        <item name="android:textColorPrimary">@color/clair_text_primary</item>
+        <item name="android:textColorSecondary">@color/clair_text_secondary</item>
+        <item name="textColor1">@color/clair_text_primary</item>
+        <item name="textColor2">@color/clair_text_secondary</item>
+    </style>
+
+    <!-- ============= THÈME POMME (Vert Pastel) ============= -->
+    <style name="AppTheme.Pomme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/pomme_primary</item>
+        <item name="colorPrimaryDark">@color/pomme_primary_dark</item>
+        <item name="colorAccent">@color/pomme_accent</item>
+        <item name="android:windowBackground">@color/pomme_background</item>
+        <item name="backgroundColor">@color/pomme_background</item>
+        <item name="surfaceColor">@color/pomme_surface</item>
+        <item name="android:textColorPrimary">@color/pomme_text_primary</item>
+        <item name="android:textColorSecondary">@color/pomme_text_secondary</item>
+        <item name="textColor1">@color/pomme_text_primary</item>
+        <item name="textColor2">@color/pomme_text_secondary</item>
+    </style>
+
+    <!-- ============= THÈME ROSE PASTEL ============= -->
+    <style name="AppTheme.Rose" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/rose_primary</item>
+        <item name="colorPrimaryDark">@color/rose_primary_dark</item>
+        <item name="colorAccent">@color/rose_accent</item>
+        <item name="android:windowBackground">@color/rose_background</item>
+        <item name="backgroundColor">@color/rose_background</item>
+        <item name="surfaceColor">@color/rose_surface</item>
+        <item name="android:textColorPrimary">@color/rose_text_primary</item>
+        <item name="android:textColorSecondary">@color/rose_text_secondary</item>
+        <item name="textColor1">@color/rose_text_primary</item>
+        <item name="textColor2">@color/rose_text_secondary</item>
+    </style>
+
+    <!-- ============= THÈME SOMBRE ============= -->
+    <style name="AppTheme.Sombre" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sombre_primary</item>
+        <item name="colorPrimaryDark">@color/sombre_primary_dark</item>
+        <item name="colorAccent">@color/sombre_accent</item>
+        <item name="android:windowBackground">@color/sombre_background</item>
+        <item name="backgroundColor">@color/sombre_background</item>
+        <item name="surfaceColor">@color/sombre_surface</item>
+        <item name="android:textColorPrimary">@color/sombre_text_primary</item>
+        <item name="android:textColorSecondary">@color/sombre_text_secondary</item>
+        <item name="textColor1">@color/sombre_text_primary</item>
+        <item name="textColor2">@color/sombre_text_secondary</item>
+    </style>
+
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@drawable/rounded_background_light">
+
+    <!-- Emoji/Icon -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎉"
+        android:textSize="60sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Titre -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Niveau Supérieur !"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorAccent"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Nouveau niveau -->
+    <TextView
+        android:id="@+id/tvNewLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Novice"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="?attr/textColor1"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Badge -->
+    <ImageView
+        android:id="@+id/ivBadge"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/pp_hiboux"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/tvLevelMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vous avez lu 3 livres !"
+        android:textSize="16sp"
+        android:textColor="?attr/textColor2"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Bouton -->
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Continuer"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

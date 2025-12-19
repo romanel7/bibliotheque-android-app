@@ -4,7 +4,7 @@
     android:layout_height="50dp"
     android:padding="12dp"
     android:textSize="16sp"
-    android:textColor="@color/vert_pastel_fonce"
+    android:textColor="?attr/textColor1"
     android:gravity="center_vertical"
     android:ellipsize="end"
     android:maxLines="1" />

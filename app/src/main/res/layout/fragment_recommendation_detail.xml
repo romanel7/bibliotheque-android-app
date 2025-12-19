@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="56dp">
+
+            <!-- En-tête avec image et titre -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/backgroundColor"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/imageBookCover"
+                        android:layout_width="150dp"
+                        android:layout_height="220dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:elevation="8dp"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <TextView
+                        android:id="@+id/textBookTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/textColor1"
+                        android:gravity="center"
+                        tools:text="1984" />
+
+                    <TextView
+                        android:id="@+id/textBookAuthor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="16sp"
+                        android:textColor="?attr/textColor2"
+                        android:gravity="center"
+                        tools:text="par George Orwell" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Pourquoi ça vous plairait ? -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pourquoi ça vous plairait ?"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/textColor1"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/textReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="?attr/textColor2"
+                        android:lineSpacingExtra="4dp"
+                        tools:text="Un classique dystopique qui explore les thèmes de surveillance et contrôle totalitaire..." />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Informations -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Informations"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/textColor1"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- ISBN -->
+                    <LinearLayout
+                        android:id="@+id/layoutIsbn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="ISBN"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor2" />
+
+                        <TextView
+                            android:id="@+id/textIsbn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor1"
+                            tools:text="9780141036144" />
+
+                    </LinearLayout>
+
+                    <!-- Éditeur -->
+                    <LinearLayout
+                        android:id="@+id/layoutPublisher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Éditeur"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor2" />
+
+                        <TextView
+                            android:id="@+id/textPublisher"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor1"
+                            tools:text="Gallimard" />
+
+                    </LinearLayout>
+
+                    <!-- Nombre de pages -->
+                    <LinearLayout
+                        android:id="@+id/layoutPageCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Pages"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor2" />
+
+                        <TextView
+                            android:id="@+id/textPageCount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor1"
+                            tools:text="328 pages" />
+
+                    </LinearLayout>
+
+                    <!-- Langue -->
+                    <LinearLayout
+                        android:id="@+id/layoutLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Langue"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor2" />
+
+                        <TextView
+                            android:id="@+id/textLanguage"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textColor="?attr/textColor1"
+                            tools:text="Français" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Bouton Ajouter -->
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_margin="16dp"
+                android:text="➕ Ajouter à ma bibliothèque"
+                android:textSize="16sp"
+                android:backgroundTint="#B8E6D5"
+                android:textColor="#2D5F4C"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bouton fermer -->
+    <TextView
+        android:id="@+id/buttonClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="✕"
+        android:textColor="?attr/textColor1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/backgroundColor"
+        android:elevation="10dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

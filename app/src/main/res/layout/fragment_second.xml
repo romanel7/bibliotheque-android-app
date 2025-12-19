@@ -1,208 +1,412 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#80000000"
-    android:padding="20dp"
-    tools:context=".SecondFragment">
+    android:background="?attr/backgroundColor"
+    android:paddingTop="64dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="24dp"
+    android:clickable="true"
+    android:focusable="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Conteneur principal - Belle bulle flottante -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/modal_background"
-        android:padding="20dp">
-
-        <!-- Croix retour en haut à droite -->
-        <TextView
-            android:id="@+id/button_close"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:text="✕"
-            android:textColor="@color/vert_pastel_fonce"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp" />
-
-    <!-- Cadre photo livre -->
-    <TextView
-        android:id="@+id/photo_placeholder"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:text="Ajouter\nphoto"
-        android:gravity="center"
-        android:background="@drawable/photo_placeholder"
-        android:textColor="@color/vert_pastel_fonce"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/button_close"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="16dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="?attr/surfaceColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Champ Titre -->
-        <TextView
-            android:id="@+id/label_titre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Titre du livre"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
 
+            <!-- En-tête avec titre et bouton fermer -->
+            <TextView
+                android:id="@+id/dialog_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ajouter un livre"
+                android:textColor="?attr/textColor1"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/button_close" />
 
-            android:textColor="@color/vert_pastel_fonce"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/photo_placeholder"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" />
+            <!-- Bouton fermer élégant -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/button_close"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp"
+                android:backgroundTint="?attr/backgroundColor"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/edit_titre"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:hint="Ex: Le Petit Prince"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/label_titre"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="✕"
+                    android:textColor="?attr/textColor1"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:clickable="false" />
+            </com.google.android.material.card.MaterialCardView>
 
-        <!-- Champ Auteur -->
+            <!-- Section de recherche -->
+            <TextView
+                android:id="@+id/label_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rechercher un livre"
+                android:textColor="?attr/textColor1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/dialog_title"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp" />
 
+            <!-- Conteneur de recherche avec bordure élégante -->
+            <LinearLayout
+                android:id="@+id/search_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_edittext"
+                android:padding="4dp"
+                app:layout_constraintTop_toBottomOf="@id/label_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp">
 
-        <TextView
-            android:id="@+id/label_auteur"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+                <EditText
+                    android:id="@+id/edit_search_query"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:hint="Titre, Auteur ou ISBN"
+                    android:textColorHint="?attr/textColor2"
+                    android:textColor="?attr/textColor1"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="16sp" />
 
+                <ProgressBar
+                    android:id="@+id/progress_bar_search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="?attr/textColor1"
+                    android:layout_marginEnd="8dp" />
 
-            android:text="Auteur"
-            android:textColor="@color/vert_pastel_fonce"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_titre" />
+                <!-- Bouton Scanner avec style carte -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:focusable="true">
 
-        <EditText
-            android:id="@+id/edit_auteur"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Ex: Antoine de Saint-Exupéry"
-            android:padding="12dp"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_auteur" />
+                    <ImageButton
+                        android:id="@+id/button_scan_barcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@android:drawable/ic_menu_camera"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Scanner code-barres"
+                        app:tint="@color/white"
+                        android:scaleType="centerInside"
+                        android:padding="10dp"
+                        android:clickable="false" />
+                </com.google.android.material.card.MaterialCardView>
 
-        <!-- Champ Statut -->
-        <TextView
-            android:id="@+id/label_statut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Statut"
-            android:textColor="@color/vert_pastel_fonce"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/edit_auteur"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="10dp" />
+            </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinner_statut"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp"
-            app:layout_constraintTop_toBottomOf="@id/label_statut"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
+            <!-- Logo d'état vide avec meilleur style -->
+            <ImageView
+                android:id="@+id/empty_state_logo"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:alpha="0.25"
+                android:contentDescription="Logo bibliothèque"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Champ Note  -->
-        <TextView
-            android:id="@+id/label_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Note"
-            android:textColor="@color/vert_pastel_fonce"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/spinner_statut"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" />
+            <!-- Liste des résultats de recherche -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_search_results"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                android:scrollbars="vertical"
+                android:nestedScrollingEnabled="true"
+                android:clipToPadding="false"
+                android:paddingTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/search_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="12dp" />
 
-        <RatingBar
-            android:id="@+id/rating_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1"
-            android:rating="0"
-            android:progressTint="@color/jaune_etoile"
-            android:secondaryProgressTint="@color/gris_etoile"
-            android:backgroundTint="@color/gris_etoile"
-            style="@style/Widget.AppCompat.RatingBar"
-            app:layout_constraintTop_toBottomOf="@id/label_note"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" />
+            <!-- Formulaire de détails du livre -->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_book_details"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:scrollbars="vertical"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toBottomOf="@id/search_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/button_ajouter"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp">
 
-        <!-- Champ Memo -->
-        <TextView
-            android:id="@+id/label_memo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Memo"
-            android:textColor="@color/vert_pastel_fonce"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/rating_bar"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp">
 
-        <EditText
-            android:id="@+id/edit_memo"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp"
-            android:textSize="16sp"
-            android:gravity="top|start"
-            android:inputType="textMultiLine"
-            android:maxLines="6"
-            android:scrollbars="vertical"
-            app:layout_constraintTop_toBottomOf="@id/label_memo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
+                    <!-- Image du livre avec ombre élégante -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/book_image_card"
+                        android:layout_width="140dp"
+                        android:layout_height="200dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="8dp"
+                        app:strokeWidth="0dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Bouton Ajouter -->
-        <Button
-            android:id="@+id/button_ajouter"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:text="Ajouter le livre"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/vert_pastel_fonce"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:cornerRadius="25dp"
-            app:layout_constraintTop_toBottomOf="@id/edit_memo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
+                        <ImageView
+                            android:id="@+id/photo_livre"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="Couverture du livre" />
+                    </com.google.android.material.card.MaterialCardView>
 
+                    <!-- Conteneur des informations du livre -->
+                    <LinearLayout
+                        android:id="@+id/book_info_container"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@id/book_image_card"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+                        <!-- Titre -->
+                        <TextView
+                            android:id="@+id/label_titre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Titre"
+                            android:textColor="?attr/textColor2"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/text_titre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/textColor1"
+                            android:layout_marginBottom="16dp" />
+
+                        <!-- Auteur -->
+                        <TextView
+                            android:id="@+id/label_auteur"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Auteur"
+                            android:textColor="?attr/textColor2"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/text_auteur"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="?attr/textColor1"
+                            android:layout_marginBottom="20dp" />
+
+                        <!-- Carte Statut -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            android:backgroundTint="?attr/backgroundColor">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:id="@+id/label_statut"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Statut de lecture"
+                                    android:textColor="?attr/textColor1"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginBottom="8dp" />
+
+                                <Spinner
+                                    android:id="@+id/spinner_statut"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:entries="@array/statut_options"
+                                    android:background="@drawable/rounded_edittext"
+                                    android:padding="12dp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Carte Note -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            android:backgroundTint="?attr/backgroundColor">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center_horizontal">
+
+                                <TextView
+                                    android:id="@+id/label_note"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Ma note"
+                                    android:textColor="?attr/textColor1"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginBottom="12dp" />
+
+                                <RatingBar
+                                    android:id="@+id/rating_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:stepSize="1"
+                                    android:rating="0"
+                                    android:progressTint="@color/jaune_etoile"
+                                    android:secondaryProgressTint="@color/gris_etoile"
+                                    android:backgroundTint="@color/gris_etoile"
+                                    style="@style/Widget.AppCompat.RatingBar" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Carte Memo -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            android:backgroundTint="?attr/backgroundColor">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:id="@+id/label_memo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Notes personnelles"
+                                    android:textColor="?attr/textColor1"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginBottom="8dp" />
+
+                                <EditText
+                                    android:id="@+id/edit_memo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="120dp"
+                                    android:background="@drawable/rounded_edittext"
+                                    android:padding="12dp"
+                                    android:textSize="16sp"
+                                    android:textColor="?attr/textColor1"
+                                    android:textColorHint="?attr/textColor2"
+                                    android:hint="Ajoutez vos impressions..."
+                                    android:gravity="top|start"
+                                    android:inputType="textMultiLine"
+                                    android:maxLines="6"
+                                    android:scrollbars="vertical" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <!-- Bouton Ajouter flottant en bas -->
+            <Button
+                android:id="@+id/button_ajouter"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                android:text="Ajouter"
+                android:textColor="@color/white"
+                android:backgroundTint="?attr/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="28dp"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

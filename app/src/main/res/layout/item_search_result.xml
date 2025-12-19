@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:backgroundTint="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- 1. Image de Couverture -->
+        <ImageView
+            android:id="@+id/result_cover_image"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:background="@color/vert_pastel_clair"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/book_cover_description" />
+
+        <!-- 2. Titre -->
+        <TextView
+            android:id="@+id/result_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/textColor1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/result_cover_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Titre du Livre Reçu" />
+
+        <!-- 3. Auteur -->
+        <TextView
+            android:id="@+id/result_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textColor="@color/gray_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/result_cover_image"
+            app:layout_constraintTop_toBottomOf="@id/result_title"
+            tools:text="Auteur du Livre" />
+
+        <!-- 4. Description (CORRIGÉ: contrainte Bottom ajoutée) -->
+        <TextView
+            android:id="@+id/result_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/result_cover_image"
+            app:layout_constraintTop_toBottomOf="@id/result_author"
+            app:layout_constraintBottom_toTopOf="@id/btn_add_to_library"
+            tools:text="Description courte et nombre de pages (ex: 350 pages)" />
+
+        <!-- 5. Bouton Ajouter (CORRIGÉ: contraintes modifiées) -->
+        <Button
+            android:id="@+id/btn_add_to_library"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:text="@string/add_button_text"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/vert_pastel"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_cover_image"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- 6. Lien PDF -->
+        <TextView
+            android:id="@+id/pdf_link"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:textColor="@color/bleu_lien"
+            android:text="@string/view_pdf_link"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_add_to_library" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

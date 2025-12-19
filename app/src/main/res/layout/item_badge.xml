@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:gravity="center">
+
+    <!-- Image du badge -->
+    <ImageView
+        android:id="@+id/iv_badge"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Badge" />
+
+    <!-- Nom du badge -->
+    <TextView
+        android:id="@+id/tv_badge_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Débutant"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="?attr/textColor1"
+        android:textAlignment="center"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Barre de progression -->
+    <ProgressBar
+        android:id="@+id/progress_badge"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="60dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="4dp"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="#B8E6D5" />
+
+</LinearLayout>

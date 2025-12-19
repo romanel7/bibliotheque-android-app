@@ -3,26 +3,249 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/loginFragment">
 
+    <!-- Fragment Accueil -->
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.mylibrary.FirstFragment"
+        android:name="com.mylibrary.ui.fragments.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
+        <!-- Actions du Footer -->
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_SearchFragment"
+            app:destination="@id/SearchFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_AccountFragment"
+            app:destination="@id/AccountFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_BibliothequeFragment"
+            app:destination="@id/BibliothequeFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_recommendationDetailFragment"
+            app:destination="@id/recommendationDetailFragment" />
+
     </fragment>
+
+    <!-- Fragment Formulaire Ajout (SecondFragment) -->
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.mylibrary.SecondFragment"
+        android:name="com.mylibrary.ui.fragments.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
+
+        <!-- Arguments pour recevoir les données du livre -->
+        <argument
+            android:name="bookTitle"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="bookAuthors"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="bookIsbn"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="bookDescription"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="bookImageUrl"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="bookCategories"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+
+        <action
+            android:id="@+id/action_SecondFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
+
+    <!-- Fragment Loupe (SearchFragment) -->
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.mylibrary.ui.fragments.SearchFragment"
+        android:label="Recherche de Livres"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_SearchFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_SearchFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SearchFragment_to_AccountFragment"
+            app:destination="@id/AccountFragment" />
+        <action
+            android:id="@+id/action_SearchFragment_to_BibliothequeFragment"
+            app:destination="@id/BibliothequeFragment" />
+    </fragment>
+
+    <!-- Fragment Compte / Account -->
+    <fragment
+        android:id="@+id/AccountFragment"
+        android:name="com.mylibrary.ui.fragments.AccountFragment"
+        android:label="Mon Compte"
+        tools:layout="@layout/fragment_account">
+
+        <action
+            android:id="@+id/action_AccountFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_SearchFragment"
+            app:destination="@id/SearchFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_BibliothequeFragment"
+            app:destination="@id/BibliothequeFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_AccountFragment_to_SettingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Fragment Bibliotheque -->
+    <fragment
+        android:id="@+id/BibliothequeFragment"
+        android:name="com.mylibrary.ui.fragments.BibliothequeFragment"
+        android:label="Bibliothèque"
+        tools:layout="@layout/fragment_bibliotheque">
+        <action
+            android:id="@+id/action_BibliothequeFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_BibliothequeFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_BibliothequeFragment_to_AccountFragment"
+            app:destination="@id/AccountFragment" />
+        <action
+            android:id="@+id/action_BibliothequeFragment_to_SearchFragment"
+            app:destination="@id/SearchFragment" />
+        <action
+            android:id="@+id/action_BibliothequeFragment_to_BookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
+
+    <!-- Fragment Login -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.mylibrary.ui.fragments.LoginFragment"
+        android:label="Connexion">
+
+        <action
+            android:id="@+id/action_loginFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <!-- Fragment Register -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.mylibrary.ui.fragments.RegisterFragment"
+        android:label="Inscription">
+
+        <action
+            android:id="@+id/action_registerFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Fragment Parametre / Settings -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mylibrary.ui.fragments.SettingsFragment"
+        android:label="Paramètres"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/bookDetailFragment"
+        android:name="com.mylibrary.ui.bookdetail.BookDetailFragment"
+        android:label="Détails du livre"
+        tools:layout="@layout/fragment_book_detail">
+
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_bookDetailFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editBookFragment"
+        android:name="com.mylibrary.ui.fragments.EditBookFragment"
+        android:label="EditBookFragment">
+
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_editBookFragment_to_bibliothequeFragment"
+            app:destination="@id/BibliothequeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recommendationDetailFragment"
+        android:name="com.mylibrary.ui.fragments.RecommendationDetailFragment"
+        android:label="Recommandation"
+        tools:layout="@layout/fragment_recommendation_detail">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="author"
+            app:argType="string" />
+        <argument
+            android:name="isbn"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="reason"
+            app:argType="string" />
+    </fragment>
+
+
+
 </navigation>
